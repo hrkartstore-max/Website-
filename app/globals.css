@@ -350,3 +350,41 @@ body{background:#F4F3EE;color:#292824}
 .adminItem{background:#FFFFFF;border-color:#D8D5CC}.adminThumb{background-color:#F0E1D8}.adminThumb span{color:#A94D30}
 .uploadField{background:#FAF5F1;border-color:#C15F3C}
 @media(max-width:700px){.navCta,.primary{box-shadow:3px 3px 0 #292824}}
+
+
+/* HEPRA premium motion and elevated demo-card treatment */
+@keyframes hepraFadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes hepraSoftFloat{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-9px) rotate(-1deg)}}
+@keyframes hepraGlow{0%,100%{box-shadow:0 0 0 0 #C15F3C00}50%{box-shadow:0 0 0 7px #C15F3C14}}
+.heroCopy{animation:hepraFadeUp .75s cubic-bezier(.2,.7,.2,1) both}
+.heroVisual{animation:hepraFadeUp .9s .12s cubic-bezier(.2,.7,.2,1) both}
+.floatNote{animation:hepraSoftFloat 5s ease-in-out infinite}
+.navCta,.primary,.bookBtn,.liveBtn,.chip{transition:transform .22s cubic-bezier(.2,.7,.2,1),box-shadow .22s ease,background-color .22s ease,border-color .22s ease,color .22s ease}
+.navCta:hover,.primary:hover,.bookBtn:hover{transform:translateY(-2px)}
+.demoGrid{align-items:stretch}
+.demoCard{position:relative;isolation:isolate;border-radius:5px;overflow:hidden;background:#FFFFFF;border:1px solid #D8D5CC;box-shadow:0 3px 0 #2928240a,0 12px 28px #29282408;transition:transform .32s cubic-bezier(.2,.7,.2,1),box-shadow .32s ease,border-color .32s ease}
+.demoCard:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:#C15F3C;transform:scaleX(0);transform-origin:left;transition:transform .32s ease;z-index:3}
+.demoCard:hover{transform:translateY(-7px);border-color:#C15F3C;box-shadow:0 5px 0 #2928240a,0 22px 48px #29282418}
+.demoCard:hover:before{transform:scaleX(1)}
+.preview{position:relative;overflow:hidden;isolation:isolate;min-height:255px;background:#F4F3EE}
+.preview:after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#FFFFFF26,transparent 44%,#2928240b);pointer-events:none;z-index:1}
+.previewDecor{transition:transform .45s cubic-bezier(.2,.7,.2,1),filter .45s ease}
+.demoCard:hover .previewDecor{transform:translateY(-5px) scale(1.055) rotate(2deg);filter:saturate(1.08)}
+.previewContent{transition:transform .32s ease}
+.demoCard:hover .previewContent{transform:translateY(-3px)}
+.previewButton{transition:transform .22s ease,box-shadow .22s ease}
+.demoCard:hover .previewButton{transform:translateY(-2px);box-shadow:4px 5px 0 #29282425}
+.cardBody{display:flex;flex-direction:column;min-height:190px}
+.cardBody>p{flex:1}
+.cardMeta{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.platformTag{letter-spacing:.035em;text-transform:uppercase;font-size:9px}
+.cardBottom{align-items:center}
+.bookBtn{min-height:40px;padding:11px 14px}
+.liveBtn{min-height:40px;padding:10px 13px}
+.demoCard:focus-within{outline:2px solid #C15F3C;outline-offset:3px}
+.priceCard{transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease}
+.priceCard:hover{transform:translateY(-5px);box-shadow:0 8px 0 #2928240a,0 20px 40px #29282412}
+.step{transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.step:hover{transform:translateY(-4px);border-color:#C15F3C;box-shadow:0 14px 30px #29282410}
+@media(max-width:700px){.demoCard:hover{transform:translateY(-3px)}.preview{min-height:235px}.cardBody{min-height:175px}.bookBtn,.liveBtn{min-height:42px}}
+@media(prefers-reduced-motion:reduce){.heroCopy,.heroVisual,.floatNote{animation:none!important}.demoCard,.demoCard:before,.previewDecor,.previewContent,.previewButton,.navCta,.primary,.bookBtn,.liveBtn,.chip,.priceCard,.step{transition:none!important}.demoCard:hover,.priceCard:hover,.step:hover{transform:none!important}}
