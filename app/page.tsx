@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
-const demos = [
+type DemoItem = {id:number;title:string;category:string;platform:string;price:string;tag:string;style:string;desc:string;bannerImage?:string;tileImage?:string;websiteLink?:string};
+const demos: DemoItem[] = [
  {id:1,title:"Fashion Boutique",category:"Fashion",platform:"Shopify",price:"₹999 / 3 months",tag:"Popular",style:"fashion",desc:"Elegant storefront for clothing and accessories."},
  {id:2,title:"Optical Store",category:"Optical",platform:"Shopify",price:"₹999 / 3 months",tag:"Made for retail",style:"optical",desc:"Showcase frames, lenses and eye-care services."},
  {id:3,title:"Restaurant & Cafe",category:"Restaurant",platform:"WordPress",price:"₹4,999 / year",tag:"Food & drink",style:"food",desc:"A delicious digital home for your menu and orders."},
