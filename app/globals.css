@@ -314,3 +314,39 @@ body{background:var(--brand-cream);color:var(--brand-ink);font-family:'DM Sans',
 @media(max-width:900px){.nav{gap:14px}.nav nav{gap:14px}.heroInner{min-height:0;padding-top:40px;padding-bottom:32px}.heroVisual{height:320px}.preview{min-height:245px}}
 @media(max-width:700px){.wrap{width:calc(100% - 32px)}.topline{font-size:10px;line-height:1.5}.topline span{display:block;margin:3px 0 0}.nav{min-height:68px}.nav nav{display:none}.logo{font-size:20px}.logoMark{width:36px;height:36px}.navCta{padding:11px 12px;font-size:10px;gap:8px}.heroInner{grid-template-columns:1fr;gap:16px;padding-top:36px;padding-bottom:18px}.hero h1{font-size:clamp(42px,12vw,58px);margin-top:20px}.heroCopy>p{font-size:14px}.heroActions{flex-wrap:wrap;gap:10px}.heroVisual{height:275px;min-height:275px;margin:0 -3px}.browser{width:76%}.browserBack{transform:rotate(5deg) translate(28px,2px)}.browserFront{transform:rotate(-3deg) translate(-16px,6px)}.mock{height:175px;padding:19px 15px}.mock h3{font-size:21px}.heroBottom{display:grid;grid-template-columns:1fr;gap:9px;padding-top:13px;padding-bottom:15px}.categorySection{padding-top:42px;padding-bottom:35px}.categorySection h2{font-size:32px}.categoryChips{gap:8px}.chip{padding:9px 10px;font-size:11px}.demos{padding-top:10px;padding-bottom:55px}.sectionHead{align-items:stretch;flex-direction:column;gap:18px}.sectionHead h2{font-size:clamp(34px,9vw,44px)}.filters{display:grid;grid-template-columns:1fr 115px;gap:8px}.searchBox{min-width:0}.resultLine{display:flex;flex-direction:column;gap:6px;line-height:1.6}.demoGrid{grid-template-columns:1fr;gap:18px}.preview{min-height:245px}.cardBody{padding:17px}.cardBody h3{font-size:19px}.cardBottom{align-items:flex-start}.cardActions{width:100%;display:grid;grid-template-columns:1fr 1fr}.liveBtn,.bookBtn{justify-content:center;padding:10px 8px;font-size:10px}.pricingSection{padding:48px 16px;margin-left:0;margin-right:0}.priceCard{padding:22px}.adminHeader{gap:10px}.adminHeader .logo{font-size:18px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+
+/* HEPRA Claude-inspired palette refinement */
+:root{--brand-coral:#C15F3C;--brand-ink:#292824;--brand-cream:#F4F3EE;--brand-sand:#E9E7E0;--brand-border:#D8D5CC}
+body{background:#F4F3EE;color:#292824}
+.topline{background:#292824;color:#F4F3EE}.topline span{color:#D88A6D}
+.nav{background:#F4F3EE}.logoMark{background:#C15F3C;color:#FFFFFF;box-shadow:4px 4px 0 #292824}
+.navCta,.primary{background:#C15F3C;color:#FFFFFF;box-shadow:4px 4px 0 #292824}
+.navCta:hover,.primary:hover{background:#A94D30;color:#FFFFFF;box-shadow:6px 6px 0 #292824}
+.hero{background:linear-gradient(120deg,#F4F3EE 0%,#F0EEE7 70%,#E8E2D8 100%)}.heroGlow{background:#C15F3C18}
+.eyebrow{background:#C15F3C;border-color:#292824;color:#FFFFFF;box-shadow:3px 3px 0 #292824}
+.hero h1 em,.sectionHead h2 em,.centerHead h2 em,.ctaBox h2 em{color:#C15F3C}
+.heroCopy>p,.categorySection p,.sectionHead p,.centerHead p{color:#625F58}
+.whatsapp{background:#FFFFFF;border-color:#D8D5CC;color:#292824}.whatsapp:hover{background:#F0E4DC;border-color:#C15F3C}
+.heroBottom{border-color:#D8D5CC;color:#6B685F}.heroBottom b,.sectionKicker{color:#A94D30}
+.floatNote{background:#FFFFFF;border-color:#292824;box-shadow:4px 4px 0 #292824}
+.chip{background:#FFFFFF;border-color:#D8D5CC;color:#45433E}.chip.active,.chip:hover{background:#C15F3C;border-color:#292824;color:#FFFFFF}
+.searchBox,.filters select{background:#FFFFFF;border-color:#D8D5CC;color:#292824}
+.searchBox:focus-within,.filters select:focus{border-color:#C15F3C;box-shadow:0 0 0 3px #C15F3C25}
+.resultLine{border-color:#D8D5CC;color:#625F58}
+.demoCard{background:#FFFFFF;border-color:#D8D5CC;box-shadow:5px 5px 0 #E3E0D7}.demoCard:hover{border-color:#B1ADA1;box-shadow:7px 8px 0 #C15F3C}
+.previewButton{background:#C15F3C;color:#FFFFFF;box-shadow:3px 3px 0 #292824}
+.platformTag{background:#F0E1D8;color:#8C452D}
+.bookBtn{background:#C15F3C;color:#FFFFFF;border-color:#292824;box-shadow:3px 3px 0 #292824}.bookBtn:hover{background:#A94D30;color:#FFFFFF}
+.liveBtn{background:#FFFFFF;border-color:#D8D5CC;color:#292824}.liveBtn:hover{background:#E9E7E0;border-color:#292824}
+.pricingSection{background:#E9E7E0;border-color:#D8D5CC}.priceCard{background:#FFFFFF;border-color:#D8D5CC;box-shadow:5px 5px 0 #D8D5CC}
+.featuredPrice{border-color:#C15F3C;box-shadow:6px 6px 0 #292824}.planTag,.adminLink{color:#A94D30}
+.adminHeader{background:#292824;color:#FFFFFF;border-bottom:2px solid #C15F3C}.adminPage{background:#F0EEE7}
+.adminLogin,.adminEditor,.adminListings,.adminPricing{background:#FFFFFF;border-color:#D8D5CC;box-shadow:5px 5px 0 #E3E0D7}
+.adminLogin>ul,.adminPricing>div{background:#F4F3EE;color:#6F3E2D}.adminNotice{background:#F7EAE3;border-color:#E6C5B5;color:#753C28}
+.adminCount,.loginIcon{background:#C15F3C;color:#FFFFFF}
+.adminForm input,.adminForm select,.adminForm textarea,.adminLogin form input{background:#FFFFFF;border-color:#D8D5CC;color:#292824}
+.adminForm input:focus,.adminForm select:focus,.adminForm textarea:focus,.adminLogin form input:focus{border-color:#C15F3C;box-shadow:0 0 0 3px #C15F3C25}
+.adminItem{background:#FFFFFF;border-color:#D8D5CC}.adminThumb{background-color:#F0E1D8}.adminThumb span{color:#A94D30}
+.uploadField{background:#FAF5F1;border-color:#C15F3C}
+@media(max-width:700px){.navCta,.primary{box-shadow:3px 3px 0 #292824}}
