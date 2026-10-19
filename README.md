@@ -1,30 +1,47 @@
 # HEPRA Website Demo & Booking Platform
 
-Responsive showcase for Shopify and WordPress website concepts, pricing plans, demo preview and WhatsApp enquiry.
+Next.js website catalogue for Shopify and WordPress website services, with secure admin access, image uploads, shared database storage, live demo links and WhatsApp enquiries.
 
-## Features
-- Responsive home page and demo catalog with search/category/platform filters
-- Live demo preview modal; if a real demo URL is configured in Admin, the Live Demo button opens that URL
-- Shopify plan: ₹999 / 3 months; domain not included
-- WordPress plan: ₹4,999 / year; includes one-year eligible domain
-- Booking form that prepares a WhatsApp enquiry
-- Admin prototype at `/admin` to edit demo title, category, platform, price, badge, description, tile/banner image URLs and live website links
-- Import/export catalog JSON for moving a catalog between browsers
+## Customer-facing plans
+- Shopify website: ₹999 / 3 months; domain not included. Payment and shipping integration setup depend on provider support and account approval. Shopify subscription and third-party charges may apply.
+- WordPress website: ₹4,999 / year; one-year eligible domain included, payment integration and shipping integration where applicable. Hosting, renewals and provider fees must be confirmed.
 
-## Run locally
+## Secure admin features
+- Admin sign-in protected by a server-verified signed, HttpOnly, SameSite=Strict cookie
+- 8-hour session; password and session secret are server-only environment variables
+- Create, edit and delete demo listings in shared Supabase Postgres
+- Upload banner and tile images from a device (JPG, PNG, WebP, AVIF; maximum 5 MB each)
+- Configure actual live demo URL, description, platform, badge and display price
+- Public catalogue fetches shared database records, so published changes are visible to all visitors
+
+## Required Vercel environment variables
+Copy the values from `.env.example` into Vercel → Project → Settings → Environment Variables. Generate your own strong random secrets. Never commit real secrets, and never expose `SUPABASE_SERVICE_ROLE_KEY` with a `NEXT_PUBLIC_` prefix.
+
+- `ADMIN_PASSWORD`: strong admin password, minimum 16 characters
+- `ADMIN_SESSION_SECRET`: random secret, minimum 32 characters
+- `SUPABASE_URL`: active Supabase project URL
+- `SUPABASE_SERVICE_ROLE_KEY`: server-only service role key from the same Supabase project
+- `NEXT_PUBLIC_WHATSAPP_NUMBER`: WhatsApp number with country code and digits only
+- `NEXT_PUBLIC_SITE_URL`: public site URL
+
+## Database and image storage setup
+1. Use an active Supabase project and add the server environment variables in Vercel.
+2. Run `supabase/migrations/202610190001_secure_admin_catalog.sql` in that project's SQL editor (or apply it using your migration workflow). It creates the catalogue table and the `demo-images` Storage bucket.
+3. Redeploy the Vercel project.
+4. Open `/admin`, sign in, upload a test image, create a test listing and verify it appears on the public site.
+
+## Local development
 ```bash
 npm install
 npm run dev
 ```
 
-## Environment variables
-Set `NEXT_PUBLIC_WHATSAPP_NUMBER` to your WhatsApp number with country code and digits only, e.g. `919876543210`. Optional: `NEXT_PUBLIC_SITE_URL` for metadata canonical base.
+## Security notes
+- The Supabase service role key is used only in server-side API routes and bypasses Row Level Security. Do not leak it to client-side code.
+- The app rejects unauthenticated catalogue writes and image uploads. Image uploads are type-limited and capped at 5 MB.
+- This is a single-admin password/session model, not a multi-user role management system. Use a unique long password and rotate secrets if exposed.
+- Before production launch, add rate limiting at the edge/WAF, audit logs, monitoring, backups and a tested recovery procedure.
+- Payment and shipping integrations depend on provider accounts, permissions, transaction fees and supported plans; the website setup does not automatically create those provider accounts.
 
-## Admin persistence limitation
-The current `/admin` is a prototype that saves catalog changes in the current browser's local storage. The public catalog can read those changes only in that same browser. It is NOT a shared production CMS and is not protected by server-side authentication. For changes to appear to all visitors and for secure admin access, connect a database (for example Supabase) and implement authenticated server-side admin operations before launch.
-
-## Pricing notes
-Plan pricing and included scope are displayed as requested, but payment/shipping integration availability depends on provider accounts and approvals. Shopify subscription charges, hosting, premium plugins/apps, domain renewals, transaction charges and other third-party fees may apply. Confirm final scope and costs with the customer before accepting payment.
-
-## Deploy on Vercel
-Import this repository into Vercel with the Next.js preset. Configure environment variables in Project Settings and redeploy after changes.
+## Deploy
+Import this repository into Vercel using the Next.js preset. Configure the environment variables and Supabase schema before expecting the admin catalogue and image uploads to work.
