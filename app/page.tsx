@@ -15,7 +15,7 @@ const demos = [
  {id:12,title:"Jewellery Store",category:"Jewellery",platform:"Shopify",price:"₹9,999",tag:"Premium",style:"jewellery",desc:"A refined storefront for jewellery and gifting."}
 ];
 const categories = ["All","Fashion","Optical","Restaurant","Salon","Electronics","Business","Home & Living","Clinic","Kids","Real Estate","Fitness","Jewellery"];
-const waNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "").replace(/\\D/g, "");
+const waNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "").replace(/\D/g, "");
 function WhatsAppLink({label="Chat on WhatsApp",message="Hi HEPRA, I want to discuss a website for my business."}:{label?:string;message?:string}) { return <a className="whatsapp" href={`https://wa.me/${waNumber || "919876543210"}?text=${encodeURIComponent(message)}`} target="_blank" rel="noreferrer">☏ {label}</a>; }
 export default function Home(){
  const [category,setCategory]=useState("All"); const [platform,setPlatform]=useState("All"); const [search,setSearch]=useState(""); const [selected,setSelected]=useState<(typeof demos)[number]|null>(null); const [name,setName]=useState(""); const [phone,setPhone]=useState(""); const [business,setBusiness]=useState(""); const [budget,setBudget]=useState("₹5,000–₹10,000"); const [requirements,setRequirements]=useState("");
