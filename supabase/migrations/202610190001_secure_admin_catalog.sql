@@ -23,3 +23,19 @@ on conflict (id) do update set public=true,file_size_limit=5242880,allowed_mime_
 -- No direct client writes to this bucket. Uploads go through the authenticated server API.
 drop policy if exists "No direct client upload to demo images" on storage.objects;
 create policy "No direct client upload to demo images" on storage.objects for insert to anon, authenticated with check (bucket_id <> 'demo-images');
+
+insert into public.website_demos (title,category,platform,price,tag,style,description)
+values
+('Fashion Boutique','Fashion','Shopify','₹999 / 3 months','Popular','fashion','Elegant storefront for clothing and accessories.'),
+('Optical Store','Optical','Shopify','₹999 / 3 months','Made for retail','optical','Showcase frames, lenses and eye-care services.'),
+('Restaurant & Cafe','Restaurant','WordPress','₹4,999 / year','Food & drink','food','A delicious digital home for your menu and orders.'),
+('Beauty & Salon','Salon','WordPress','₹4,999 / year','Trending','beauty','Premium service pages and appointment enquiries.'),
+('Electronics Store','Electronics','Shopify','₹999 / 3 months','Ecommerce','tech','A clean product-led shop for gadgets and devices.'),
+('Business Agency','Business','WordPress','₹4,999 / year','Professional','business','Build trust with a polished service-business website.'),
+('Home Decor','Home & Living','Shopify','₹999 / 3 months','Lifestyle','home','Beautiful layouts for homeware and furniture.'),
+('Clinic Website','Clinic','WordPress','₹4,999 / year','Healthcare','clinic','Clear service information and appointment enquiries.'),
+('Kids & Toys','Kids','Shopify','₹999 / 3 months','Colourful','kids','A playful online store for toys and kids products.'),
+('Real Estate','Real Estate','WordPress','₹4,999 / year','Property','estate','Present properties and collect buyer enquiries.'),
+('Fitness Studio','Fitness','WordPress','₹4,999 / year','Wellness','fitness','Promote memberships, trainers and classes.'),
+('Jewellery Store','Jewellery','Shopify','₹999 / 3 months','Premium','jewellery','A refined storefront for jewellery and gifting.')
+on conflict do nothing;
