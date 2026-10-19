@@ -180,3 +180,50 @@ body{background:#fffaf5;color:#24150f}
 .adminError{background:#fff0ec}
 .adminSuccess{background:#edf6ed}
 @media(prefers-reduced-motion:no-preference){.primary,.navCta,.demoCard,.bookBtn{transition:transform .2s ease,background .2s ease,box-shadow .2s ease}.demoCard:hover{transform:translateY(-5px)}}
+
+
+/* Premium high-contrast palette inspired by the reference portfolio */
+:root{--purple:#ff5a45;--purple2:#e94532;--ink:#111827;--muted:#5f6470;--line:#d8d0c2;--soft:#eee7d9}
+body{background:#f2ecdf;color:#111827}
+.topline{background:#111827;color:#f7f1e6}
+.topline span{color:#ff7864}
+.nav{background:#f2ecdf}
+.logoMark{background:#ff5a45;color:#111827;box-shadow:4px 4px 0 #111827}
+.navCta,.primary{background:#ff5a45;color:#111827;border-radius:2px;box-shadow:4px 4px 0 #111827}
+.navCta:hover,.primary:hover{background:#e94532;color:#fffaf2;transform:translate(-1px,-1px);box-shadow:6px 6px 0 #111827}
+.hero{background:linear-gradient(120deg,#f2ecdf 0%,#eee5d5 58%,#e8dac5 100%)}
+.heroGlow{background:#ff5a4525}
+.eyebrow{background:#ff5a45;border-color:#111827;color:#111827;border-radius:2px;box-shadow:3px 3px 0 #111827}
+.hero h1 em,.sectionHead h2 em,.centerHead h2 em,.ctaBox h2 em{color:#ff5a45}
+.floatNote{border:1px solid #111827;border-radius:2px;box-shadow:4px 4px 0 #111827}
+.heroBottom{border-color:#d5caba;color:#5f6470}
+.heroBottom b{color:#ff5a45}
+.chip{border-color:#d8d0c2;color:#333b49;background:#f9f5ec;border-radius:2px}
+.chip.active,.chip:hover{background:#ff5a45;border-color:#111827;color:#111827}
+.demoCard{border:1px solid #cfc6b6;border-radius:0;background:#f8f3e9;box-shadow:4px 4px 0 #d9d0c1}
+.demoCard:hover{box-shadow:6px 6px 0 #ff5a45}
+.preview{border-radius:0}
+.previewButton{background:#ff5a45;color:#111827;border-radius:0}
+.cardBody h3,.cardBottom strong{color:#111827}
+.platformTag{background:#ffded7;color:#8c241b;border-radius:2px}
+.bookBtn{border:1px solid #111827;border-radius:2px;background:#f8f3e9;color:#111827;box-shadow:2px 2px 0 #111827}
+.bookBtn:hover{background:#ff5a45;color:#111827}
+.searchBox,.filters select{border-color:#cfc6b6;background:#f9f5ec;border-radius:2px;color:#111827}
+.pricingSection{background:#eae1d2}
+.priceCard{background:#f8f3e9;border-color:#cfc6b6;border-radius:0;box-shadow:4px 4px 0 #d8cfc0}
+.featuredPrice{border:2px solid #ff5a45;box-shadow:5px 5px 0 #111827}
+.planTag,.adminLink{color:#e94532}
+.priceCard li::marker{color:#ff5a45}
+.adminHeader{background:#111827;color:#f7f1e6;border-bottom-color:#ff5a45}
+.adminPage{background:#eee7d9}
+.adminLogin,.adminEditor,.adminListings,.adminPricing{background:#f8f3e9;border-color:#d2c8b8;border-radius:2px;box-shadow:5px 5px 0 #d9d0c1}
+.adminLogin>ul,.adminPricing>div{background:#fbe0d8;color:#802b21;border-radius:2px}
+.adminNotice{background:#ffebe4;border-color:#f1b9aa;color:#802b21;border-radius:2px}
+.adminCount,.loginIcon{background:#ff5a45;color:#111827;border-radius:2px}
+.adminForm input,.adminForm select,.adminForm textarea,.adminLogin form input{border-color:#d2c8b8;border-radius:2px;background:#fffaf2;color:#111827}
+.adminForm input:focus,.adminForm select:focus,.adminForm textarea:focus,.adminLogin form input:focus{border-color:#ff5a45;box-shadow:0 0 0 3px #ff5a4525}
+.adminItem{background:#fffaf2;border-color:#d2c8b8;border-radius:2px}
+.adminThumb{background-color:#f5d9cd}
+.adminThumb span{color:#a52c20}
+.uploadField{border-color:#ff5a45;background:#fff2ec;border-radius:2px}
+@media(max-width:700px){.navCta,.primary{box-shadow:3px 3px 0 #111827}}
