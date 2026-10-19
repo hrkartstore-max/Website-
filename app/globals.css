@@ -48,3 +48,17 @@ body{background:#fbf8f4;color:#171411}
 .closeModal{border-radius:4px}
 .bookingModal input,.bookingModal select,.bookingModal textarea{border-radius:4px}
 @media(max-width:620px){.hero{background:#d87858}.hero h1{font-size:clamp(31px,9vw,43px)}.heroBottom{border-color:#edaa8e}}
+
+
+/* Final polish: accessibility, interaction states, and responsive finish */
+:focus-visible{outline:3px solid #9c5038;outline-offset:3px}
+::selection{background:#f3c4ae;color:#382017}
+button:disabled{opacity:.55;cursor:not-allowed}
+.demoCard,.chip,.bookBtn,.primary,.navCta,.whatsapp,.floatingWa{transition:background-color .18s ease,color .18s ease,border-color .18s ease,transform .18s ease,box-shadow .18s ease}
+.cardBody>p{line-height:1.75}
+.preview{isolation:isolate}
+.preview:after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(120deg,#ffffff18,transparent 45%,#00000004)}
+.searchBox:focus-within{border-color:#d87858;box-shadow:0 0 0 3px #d878581a}
+.filters select:focus-visible,.chip:focus-visible,.bookBtn:focus-visible{outline-color:#d87858}
+.footer a:hover{color:#bd6347}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
