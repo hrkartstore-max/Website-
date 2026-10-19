@@ -20,9 +20,14 @@ revoke all on public.website_demos from anon, authenticated;
 insert into storage.buckets (id,name,public,file_size_limit,allowed_mime_types)
 values ('demo-images','demo-images',true,5242880,array['image/jpeg','image/png','image/webp','image/avif'])
 on conflict (id) do update set public=true,file_size_limit=5242880,allowed_mime_types=array['image/jpeg','image/png','image/webp','image/avif'];
--- No direct client writes to this bucket. Uploads go through the authenticated server API.
+-- Restrictive policies prevent direct browser writes to this bucket even if other permissive policies exist.
 drop policy if exists "No direct client upload to demo images" on storage.objects;
-create policy "No direct client upload to demo images" on storage.objects for insert to anon, authenticated with check (bucket_id <> 'demo-images');
+drop policy if exists "Protect demo images from client inserts" on storage.objects;
+drop policy if exists "Protect demo images from client updates" on storage.objects;
+drop policy if exists "Protect demo images from client deletes" on storage.objects;
+create policy "Protect demo images from client inserts" on storage.objects as restrictive for insert to anon, authenticated with check (bucket_id <> 'demo-images');
+create policy "Protect demo images from client updates" on storage.objects as restrictive for update to anon, authenticated using (bucket_id <> 'demo-images') with check (bucket_id <> 'demo-images');
+create policy "Protect demo images from client deletes" on storage.objects as restrictive for delete to anon, authenticated using (bucket_id <> 'demo-images');
 
 insert into public.website_demos (title,category,platform,price,tag,style,description)
 values
