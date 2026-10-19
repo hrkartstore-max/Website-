@@ -1,0 +1,3 @@
+import { NextRequest, NextResponse } from "next/server";
+import { adminConfigured, makeSession, passwordMatches, COOKIE_NAME, secureCookieOptions } from "@/lib/admin-auth";
+export async function POST(request:NextRequest){if(!adminConfigured())return NextResponse.json({error:"Admin security is not configured. Set the required Vercel environment variables first."},{status:503});let body:any;try{body=await request.json();}catch{return NextResponse.json({error:"Invalid request."},{status:400});}if(typeof body.password!=="string"||!passwordMatches(body.password))return NextResponse.json({error:"Incorrect admin password."},{status:401});const response=NextResponse.json({ok:true});response.cookies.set(COOKIE_NAME,makeSession(),secureCookieOptions());return response;}
